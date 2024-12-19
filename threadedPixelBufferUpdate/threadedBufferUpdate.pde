@@ -22,8 +22,10 @@ class updateBuffer extends Thread {
           buffer.pixels[xy2i(x, y)] = 0xff000000 | ((int) (intRandom(50, 255)) << 16 | (int) (intRandom(50, 255)) << 8 | (int) (intRandom(50, 255)));
         } else {
           // greysacle
-          int r = intRandom(0, 180);
-          buffer.pixels[xy2i(x, y)] = 0xff000000 | ((int) (r) << 16 | (int) (r) << 8 | (int) (r));
+          if (x%2 == 0 && y%2 == 0) { // every second
+            int r = intRandom(0, 16)*16;
+            buffer.pixels[xy2i(x, y)] = 0xff000000 | ((int) (r) << 16 | (int) (r) << 8 | (int) (r));
+          }
         }
       }
     }

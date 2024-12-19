@@ -42,7 +42,7 @@ void draw() {
     }
   }
 
-  //  scale = 1;
+  //scale = 1.0;
   scale(scale); // zoom into the screen
   if (!PAUSE) {
     ArrayList tasks = new ArrayList();
