@@ -5,12 +5,15 @@ volatile PImage buffer;
 
 void setup() {
   size(1920, 1080, OPENGL);
+  frameRate(200);
+
+  // disable anti aliasing
   hint(DISABLE_TEXTURE_MIPMAPS);
   ((PGraphicsOpenGL)g).textureSampling(2);
+
   buffer = createImage(int(width), int(height), RGB);
   buffer.loadPixels();
   imageMode(CENTER);
-  frameRate(200);
 }
 
 
@@ -18,7 +21,7 @@ void draw() {
   background(0);
   pushMatrix();
   translate(width/2, height/2, 0);
-  scale = 1.0 + (((sin(millis()*0.001)+1)/2)*200);
+  scale = 1.0 + (((sin(millis()*0.001)+1)/2)*240);
   scale(scale); // zoom into the screen
 
   ArrayList tasks = new ArrayList();
@@ -42,6 +45,6 @@ void draw() {
   image(buffer, 0, 0, width, height);
   popMatrix();
   fill(255);
-  textSize(50);
-  text("fps: "+(int) frameRate+ " scale: "+scale, 50, 50);
+  textSize(30);
+  text("fps: "+(int) frameRate+ " scale: "+nf(scale, 3, 2), 50, 50);
 }
