@@ -17,7 +17,7 @@ class updateBuffer extends Thread {
     for (int x=fromX; x<toX; x++) {
       for (int y=fromY; y<toY; y++) {
         //  buffer update here
-         buffer.pixels[xy2i(x, y)] = 0xff000000 | ((int) (intRandom(0, 255)) << 16 | (int) (intRandom(0, 255)) << 8 | (int) (intRandom(0, 255)));
+        buffer.pixels[xy2i(x, y)] = 0xff000000 | ((int) (intRandom(0, 255)) << 16 | (int) (intRandom(0, 255)) << 8 | (int) (intRandom(0, 255)));
       }
     }
   }
