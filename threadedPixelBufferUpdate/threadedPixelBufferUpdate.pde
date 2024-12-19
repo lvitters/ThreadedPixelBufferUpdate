@@ -18,7 +18,8 @@ void draw() {
   background(0);
   pushMatrix();
   translate(width/2, height/2, 0);
-  scale(1.0 + (((sin(millis()*0.001)+1)/2)*100)); // zoom into the screen
+  scale = 1.0 + (((sin(millis()*0.001)+1)/2)*200);
+  scale(scale); // zoom into the screen
 
   ArrayList tasks = new ArrayList();
   int thread_splite = 6; // number of threads for pixel updates. 1 = no thread. find the sweet spot for you CPU
