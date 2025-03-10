@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.IOException;
 
-public class threadedPixelBufferUpdate extends PApplet {
+public class ThreadedPixelBufferUpdate extends PApplet {
 
 
 
@@ -164,14 +164,13 @@ class updateBuffer extends Thread {
 				noiseIncR += random(.001f, .01f);
 				noiseIncG += random(.001f, .01f);
 				noiseIncB += random(.001f, .01f);
-
-				// int r = intRandom(50, 255);
-				// int g = intRandom(50, 255);
-				// int b = intRandom(50, 255);
-
 				float r = map(perlin.noise(noiseIncR), 0, 1, 50, 255);
 				float g = map(perlin.noise(noiseIncG), 0, 1, 50, 255);
 				float b = map(perlin.noise(noiseIncB), 0, 1, 50, 255);
+
+				// float r = intRandom(50, 255);
+				// float g = intRandom(50, 255);
+				// float b = intRandom(50, 255);
 
 				buffer.pixels[xy2i(x, y)] = 0xff000000 | ((int) (r) << 16 | (int) (g) << 8 | (int) (b));
 			}
@@ -183,7 +182,7 @@ class updateBuffer extends Thread {
   public void settings() { size(1000, 1000, OPENGL); }
 
   static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "threadedPixelBufferUpdate" };
+    String[] appletArgs = new String[] { "ThreadedPixelBufferUpdate" };
     if (passedArgs != null) {
       PApplet.main(concat(appletArgs, passedArgs));
     } else {

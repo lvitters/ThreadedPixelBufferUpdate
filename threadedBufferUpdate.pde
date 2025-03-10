@@ -27,10 +27,9 @@ class updateBuffer extends Thread {
 				// noiseIncR += random(.001, .01);
 				// noiseIncG += random(.001, .01);
 				// noiseIncB += random(.001, .01);
-
-				float r = map(perlin.noise(noiseIncR), 0, 1, 50, 255);
-				float g = map(perlin.noise(noiseIncG), 0, 1, 50, 255);
-				float b = map(perlin.noise(noiseIncB), 0, 1, 50, 255);
+				// float r = map(perlin.noise(noiseIncR), 0, 1, 50, 255);
+				// float g = map(perlin.noise(noiseIncG), 0, 1, 50, 255);
+				// float b = map(perlin.noise(noiseIncB), 0, 1, 50, 255);
 
 				float r = intRandom(50, 255);
 				float g = intRandom(50, 255);
